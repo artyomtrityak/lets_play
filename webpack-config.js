@@ -9,8 +9,8 @@ var VENDOR_LIBS = [
   'bluebird',
   'classnames',
   /*'leaflet',*/
-  'lodash'/*,
-  'spin.js'*/
+  'lodash'
+  /*'spin.js'*/
 ];
 
 module.exports = {
