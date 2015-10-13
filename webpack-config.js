@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         test: /\.(otf|eot|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=65536'
+        loader: 'file-loader'
       }
     ]
   },

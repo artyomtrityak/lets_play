@@ -6,9 +6,6 @@
   },
   "parser": "babel-eslint",
   "plugins": ["react"],
-  "ecmaFeatures": {
-    "modules": true
-  },
   "rules": {
     // errors
     "no-empty": [0],
