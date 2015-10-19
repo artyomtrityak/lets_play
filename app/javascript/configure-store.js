@@ -5,7 +5,6 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from 'javascript/reducers/index';
 
-console.log('INDEX:', rootReducer);
 
 const logger = createLogger({collapsed: true});
 
