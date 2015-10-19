@@ -1,14 +1,22 @@
 'use strict';
 
-//CSS
-require('bootstrap/dist/css/bootstrap.css');
-require('assets/styles/main.scss');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import createHistory from 'history/lib/createHashHistory';
+import { Provider } from 'react-redux';
+import { Router, Redirect } from 'react-router';
+import configureStore from './configure-store';
+import routes from './routes';
 
+const store = configureStore();
 
-let React = require('react');
-let routes = require('./routes');
-let imgUrl = require('assets/images/bgg.png');
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={createHistory()}>
+      <Redirect from="/" to="home" />
+      {routes}
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
 
-
-
-console.log(React, routes, imgUrl);

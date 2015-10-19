@@ -1,15 +1,23 @@
+'use strict';
+
 var webpack = require('webpack'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
   path = require('path');
 
 var VENDOR_LIBS = [
   'react',
+  'react-dom',
   'react-router',
   'redux',
-  /*'jquery',*/
+  'react-redux',
+  'redux-logger',
+  'redux-thunk',
   'bluebird',
   'classnames',
+  'lodash',
+  'history'//,
   /*'leaflet',*/
-  'lodash'
+  /*'jquery',*/
   /*'spin.js'*/
 ];
 
@@ -31,7 +39,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader?optional=runtime']
+        loaders: ['babel-loader?optional=runtime&stage=0&loose[]=es6.modules']
       },
       {
         test: /\.css$/,
@@ -75,8 +83,8 @@ module.exports = {
   ],
   devServer: {
     port: 8090,
-    host: "0.0.0.0",
-    inline: true
+    host: '0.0.0.0'//,
+    //inline: true
   },
   devtool: 'source-map' // source maps with debugging, slow
   //devtool: 'eval-source-map'
