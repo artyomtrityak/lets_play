@@ -22,9 +22,11 @@ var VENDOR_LIBS = [
 ];
 
 module.exports = {
-  watch: true,
   entry: {
-    app: './app/javascript/index.js',
+    app: [
+      'webpack-dev-server/client?http://0.0.0.0:8090',
+      './app/javascript/index.js'
+    ],
     vendor: VENDOR_LIBS
   },
   module: {
@@ -39,7 +41,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader?optional=runtime&stage=0&loose[]=es6.modules']
+        loaders: ['react-hot', 'babel-loader?optional=runtime&stage=0&loose[]=es6.modules']
       },
       {
         test: /\.css$/,
@@ -77,14 +79,16 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin(
       /* chunkName= */'vendor', /* filename= */'vendor.bundle.js'
     )
   ],
   devServer: {
     port: 8090,
-    host: '0.0.0.0'//,
-    //inline: true
+    host: '0.0.0.0',
+    inline: true,
+    hot: true
   },
   devtool: 'source-map' // source maps with debugging, slow
   //devtool: 'eval-source-map'
