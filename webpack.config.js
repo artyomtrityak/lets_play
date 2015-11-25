@@ -8,10 +8,6 @@ var VENDOR_LIBS = [
   'react',
   'react-dom',
   'react-router',
-  'redux',
-  'react-redux',
-  'redux-logger',
-  'redux-thunk',
   'bluebird',
   'classnames',
   'lodash',
@@ -41,7 +37,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader?optional=runtime&stage=0&loose[]=es6.modules']
+        loaders: ['react-hot', 'babel-loader?stage=1&optional=runtime']
       },
       {
         test: /\.css$/,

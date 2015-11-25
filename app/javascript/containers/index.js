@@ -2,9 +2,10 @@
 
 /*
 Containers are screens which can be called by React Router
+Containers are only smart components
 */
 
-export { App } from './app';
-export { Home } from './home';
-export { Calendar } from './calendar';
-export { User } from './user';
+export { AppContainer } from './app.container';
+export { PlaygroundContainer } from './playground.container';
+export { FinderContainer } from './finder.container';
+export { UserContainer } from './user.container';

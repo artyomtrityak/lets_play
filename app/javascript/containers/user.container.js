@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 
 
-export class User extends Component {
+export class UserContainer extends Component {
   render() {
     return (
       <div>
@@ -13,4 +13,4 @@ export class User extends Component {
   }
 }
 
-User.displayName = 'UserContainer';
+UserContainer.displayName = 'UserContainer';

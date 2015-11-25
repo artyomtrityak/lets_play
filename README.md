@@ -2,22 +2,18 @@
 
 ##Setup
 
-- install Docker
-- `docker build -t test_vol .`
-...
-- `docker-machine ls`
-- `docker run -d -P --net=host -v /Users/atrityak/dev/lets_play:/home/app lets_play`
-- `docker logs -f lets_play_cont`
-- `docker exec -it lets_play-cont /bin/bash`
-- go to http://localhost:8090/
+- `npm install`
+- `npm start`
+- go to `http://localhost:8090/`
 
 ##JavaScript
 - react
-- redux
+- flux
 - react-router
 - bluebird
 - classnames
 - lodash
+- async/await ES7
 
 ##CSS
 - Bootstrap
