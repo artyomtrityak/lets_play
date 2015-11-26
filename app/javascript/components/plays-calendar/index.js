@@ -2,18 +2,16 @@
 
 import React, { Component } from 'react';
 
-/* actions */
-import * as playsActions from 'javascript/actions/plays';
-
 
 export let PlaysCalendarComponent = (props) => {
-  console.log('plays2', props);
+  console.log('plays', props);
 
   return (
-    <div onClick={playsActions.add}>
+    <div>
       Plays calendar
     </div>
   );
 };
 
 PlaysCalendarComponent.displayName = 'PlaysCalendarComponent';
+

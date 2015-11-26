@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { AppStore } from 'javascript/stores/app.store';
+import * as AppActions from 'javascript/actions/app.actions';
 
 /* global styles */
 import 'bootstrap/dist/css/bootstrap.css';
@@ -13,8 +15,19 @@ import imgUrl from 'assets/images/bgg.png';
 export class AppContainer extends Component {
   constructor(props) {
     super(props);
-    //TODO: get state from app.store
-    this.state = {};
+    this.state = AppStore.getState();
+  }
+
+  componentDidMount() {
+    AppStore.on('change', this.handleChange, this);
+  }
+
+  componentWillUnmount() {
+    AppStore.off(null, null, this); 
+  }
+
+  handleChange = () => {
+    this.setState(AppStore.getState());
   }
 
   render() {
@@ -35,7 +48,7 @@ export class AppContainer extends Component {
           </div>
         </nav>
         
-        <img src={imgUrl} />
+        <img src={imgUrl} onClick={AppActions.test} />
         
         <div className="container">
           {this.props.children}

@@ -1,13 +1,14 @@
 'use strict';
 
 var webpack = require('webpack'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
   path = require('path');
 
 var VENDOR_LIBS = [
   'react',
   'react-dom',
   'react-router',
+  'flux',
+  'keymirror',
   'bluebird',
   'classnames',
   'lodash',
@@ -37,7 +38,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader?stage=1&optional=runtime']
+        loaders: ['babel-loader?stage=1&optional=runtime']
       },
       {
         test: /\.css$/,
@@ -75,16 +76,12 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin(
       /* chunkName= */'vendor', /* filename= */'vendor.bundle.js'
     )
   ],
   devServer: {
-    port: 8090,
-    host: '0.0.0.0',
-    inline: true,
-    hot: true
+    port: 8090
   },
   devtool: 'source-map' // source maps with debugging, slow
   //devtool: 'eval-source-map'
