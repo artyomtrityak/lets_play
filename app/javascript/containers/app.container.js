@@ -37,7 +37,7 @@ export class AppContainer extends Component {
           <div className="container">
             
             <Link to="/" className="navbar-brand">
-              Let's play
+              Lets play
             </Link>
 
             <ul className="nav navbar-nav">
