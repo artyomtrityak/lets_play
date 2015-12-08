@@ -8,7 +8,8 @@ import * as AppActions from 'javascript/actions/app.actions';
 /* global styles */
 import 'bootstrap/dist/css/bootstrap.css';
 import 'assets/styles/main.scss';
-import imgUrl from 'assets/images/bgg.png';
+
+import { HeaderComponent } from 'javascript/components/header';
 
 
 //TODO: add loader handling here
@@ -33,27 +34,11 @@ export class AppContainer extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-default">
-          <div className="container">
-            
-            <Link to="/" className="navbar-brand">
-              Let's play
-            </Link>
-
-            <ul className="nav navbar-nav">
-              <li><Link to="/finder">Calendar</Link></li>
-              <li><Link to="/user">User</Link></li>
-            </ul>
-
-          </div>
-        </nav>
-        
-        <img src={imgUrl} onClick={AppActions.test} />
-        
+        <HeaderComponent isUserMenuOpen={this.state.isUserMenuOpen} />
+                
         <div className="container">
           {this.props.children}
         </div>
-
       </div>
     );
   }

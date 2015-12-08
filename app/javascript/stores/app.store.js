@@ -8,7 +8,9 @@ import { AppDispatcher } from 'javascript/dispatchers/app.dispatcher';
 /**
 * Application state and state processers
 */
-let appState = {};
+let appState = {
+  isUserMenuOpen: false
+};
 
 function showLoader () {
   appState = Object.assign({}, {loading: true});
@@ -17,6 +19,10 @@ function showLoader () {
 function hideLoader () {
   appState = Object.assign({}, {loading: false});
 }
+
+let toggleUserMenu = () => {
+  appState = Object.assign({}, appState, {isUserMenuOpen: !appState.isUserMenuOpen});
+};
 
 
 /**
@@ -38,6 +44,7 @@ export let AppStore = Object.assign({}, EventEmitter.prototype, {
 * Application events dispatchers
 */
 AppDispatcher.register( function (action) {
+  
   switch (action.actionType) {
     
     case AppConstants.INIT_APP_START:
@@ -50,9 +57,8 @@ AppDispatcher.register( function (action) {
       AppStore.emitChange();
       break;
 
-    //TMP
-    case AppConstants.TEST:
-      showLoader();
+    case AppConstants.TOGGLE_USER_MENU:
+      toggleUserMenu();
       AppStore.emitChange();
       break;
 
