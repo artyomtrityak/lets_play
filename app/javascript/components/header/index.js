@@ -20,9 +20,9 @@ export let HeaderComponent = (props) => {
       <div className="container">
         <div className="navbar-header">
           <a className="navbar-brand" href="#/">
-            <img alt="Let's play" src={imgUrl} style={{height: 40, marginTop: -10}} />
+            <img alt="Lets play" src={imgUrl} style={{height: 40, marginTop: -10}} />
           </a>
-          <a href="#/" className="navbar-brand">Let's play</a>
+          <a href="#/" className="navbar-brand">Lets play</a>
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
