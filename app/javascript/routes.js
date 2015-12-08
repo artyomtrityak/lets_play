@@ -17,7 +17,7 @@ import { PlaysListComponent } from 'javascript/components/plays-list';
 
 export default (
   <Route path="/" component={AppContainer}>
-    <IndexRoute component={PlaygroundContainer} />
+    <IndexRoute component={FinderContainer} />
 
     <Route path="/playground" component={PlaygroundContainer} />
     
