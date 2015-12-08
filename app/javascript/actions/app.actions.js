@@ -3,8 +3,9 @@
 import { AppDispatcher } from 'javascript/dispatchers/app.dispatcher';
 import { AppConstants } from 'javascript/constants/app.constants';
 
-export function test () {
+
+export let toggleUserMenu = () => {
   AppDispatcher.dispatch({
-    actionType: AppConstants.TEST
+    actionType: AppConstants.TOGGLE_USER_MENU
   });
-}
+};
