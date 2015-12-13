@@ -19,3 +19,7 @@ export let showSignIn = () => {
 export let onCallForPlayers = () => {
   console.log('call for players');
 };
+
+export let onModalClose = () => {
+  console.log('close modal');
+};
