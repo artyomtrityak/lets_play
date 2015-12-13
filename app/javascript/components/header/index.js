@@ -6,9 +6,17 @@ import cn from 'classnames';
 
 import imgUrl from 'assets/images/bgg.png';
 import * as AppActions from 'javascript/actions/app.actions';
+import { HeaderLoggenInComponent } from './header-logged-in.component';
+import { HeaderNotLoggenInComponent } from './header-not-logged-in.component';
+
 
 let onDisabledClick = (e) => {
   e.preventDefault();
+};
+
+let onSignIn = (e) => {
+  e.preventDefault();
+  AppActions.showSignIn();
 };
 
 
@@ -30,22 +38,17 @@ export let HeaderComponent = (props) => {
             <li className="disabled"><a onClick={onDisabledClick} href="#/playgroud">Playground</a></li>
             <li className="disabled"><a onClick={onDisabledClick} href="#/organized-play">Organized play</a></li>
           </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li className={dropdownCls}>
-              <a href="#" className="dropdown-toggle" onClick={AppActions.toggleUserMenu}>
-                Artyom Trityak <span className="caret"></span>
-              </a>
-              <ul className="dropdown-menu">
-                <li><a href="#/user">Profile</a></li>
-                <li><a href="#/user/my-plays">My plays</a></li>
-                <li><a href="#/user/friends">Friends</a></li>
-                <li><a href="#/user/my-collection">My collection</a></li>
-                <li><a href="#/user/wishlist">Wishlist</a></li>
-                <li role="separator" className="divider"></li>
-                <li><a href="#/user/logout">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
+
+          {
+            props.isLoggedIn ?
+              <HeaderLoggenInComponent
+                onMenuToggle={AppActions.toggleUserMenu}
+                isUserMenuOpen={props.isUserMenuOpen}
+              />
+              :
+              <HeaderNotLoggenInComponent onSignIn={onSignIn} />
+          }          
+
         </div>
       </div>
     </div>
