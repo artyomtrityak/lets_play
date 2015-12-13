@@ -6,7 +6,7 @@ import { AppDispatcher } from 'javascript/dispatchers/app.dispatcher';
 
 
 /**
-* Application state and state processers
+* User state and state processers
 */
 let userState = {
 };

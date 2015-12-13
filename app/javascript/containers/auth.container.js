@@ -26,12 +26,17 @@ export class AuthContainer extends Component {
   }
 
   render() {
+    // Registration modal window
     if (this.props.activeModal === 'registration') {
       return (
         <RegistrationComponent {...this.state.user} />
       );
     }
 
+    // Login modal window
+
+
+    // Otherwise
     return null;
   }
 }
