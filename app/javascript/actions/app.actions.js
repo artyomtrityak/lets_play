@@ -9,3 +9,8 @@ export let toggleUserMenu = () => {
     actionType: AppConstants.TOGGLE_USER_MENU
   });
 };
+
+
+export let showSignIn = () => {
+
+};
