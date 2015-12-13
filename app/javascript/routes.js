@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, Redirect } from 'react-router';
 import { 
   AppContainer,
   PlaygroundContainer,
@@ -17,8 +17,6 @@ import { PlaysListComponent } from 'javascript/components/plays-list';
 
 export default (
   <Route path="/" component={AppContainer}>
-    <IndexRoute component={FinderContainer} />
-
     <Route path="/playground" component={PlaygroundContainer} />
     
     <Route path="/finder" component={FinderContainer}>
@@ -31,5 +29,7 @@ export default (
     <Route path="/organized-play" component={OrganizedPlayContainer} />
     
     <Route path="/user" component={UserContainer} />
+
+    <Redirect from="/" to="/finder" />
   </Route>
 );
