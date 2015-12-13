@@ -10,7 +10,9 @@ export let HeaderLoggenInComponent = (props) => {
 
   return (
     <span className="navbar-right">
-      <button type="button" className="btn btn-default navbar-btn navbar-left">Call for Players</button>
+      <button type="button" className="btn btn-primary navbar-btn navbar-left" onClick={props.onCallForPlayers}>
+        Call for Players
+      </button>
 
       <a href="#/user" className="navbar-brand" style={{paddingRight: 0, paddingLeft: 70}}>
         <img src={imgUrl} className="img-responsive img-rounded" alt="Artom Trityak" style={{marginTop: -10, height: 40}} />

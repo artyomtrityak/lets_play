@@ -43,6 +43,7 @@ export let HeaderComponent = (props) => {
             props.isLoggedIn ?
               <HeaderLoggenInComponent
                 onMenuToggle={AppActions.toggleUserMenu}
+                onCallForPlayers={AppActions.onCallForPlayers}
                 isUserMenuOpen={props.isUserMenuOpen}
               />
               :

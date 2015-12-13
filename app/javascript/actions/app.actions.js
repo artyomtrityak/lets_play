@@ -12,5 +12,10 @@ export let toggleUserMenu = () => {
 
 
 export let showSignIn = () => {
+  console.log('signin');
+};
 
+
+export let onCallForPlayers = () => {
+  console.log('call for players');
 };
