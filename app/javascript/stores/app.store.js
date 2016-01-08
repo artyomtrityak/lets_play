@@ -1,6 +1,6 @@
 'use strict';
 
-import { EventEmitter } from 'events';
+import { BaseStore } from './base.store';
 import { AppConstants } from 'javascript/constants/app.constants';
 import { AppDispatcher } from 'javascript/dispatchers/app.dispatcher';
 
@@ -12,30 +12,22 @@ let appState = {
   isUserMenuOpen: false
 };
 
-function showLoader () {
-  appState = Object.assign({}, {loading: true});
-}
-
-function hideLoader () {
-  appState = Object.assign({}, {loading: false});
-}
-
-let toggleUserMenu = () => {
-  appState = Object.assign({}, appState, {isUserMenuOpen: !appState.isUserMenuOpen});
-};
-
-
 /**
 * Application store
 * EXPORT: true
 */
-export let AppStore = Object.assign({}, EventEmitter.prototype, {
-  getState: function() {
-    return appState;
+
+export let AppStore = BaseStore(appState, {
+  showLoader () {
+    this.set({loader: true});
   },
 
-  emitChange: function() {
-    this.emit('change');
+  hideLoader () {
+    this.set({loader: false});
+  },
+
+  toggleUserMenu () {
+    this.set({isUserMenuOpen: !appState.isUserMenuOpen});
   }
 });
 
@@ -44,22 +36,19 @@ export let AppStore = Object.assign({}, EventEmitter.prototype, {
 * Application events dispatchers
 */
 AppDispatcher.register( function (action) {
-  
+
   switch (action.actionType) {
-    
+
     case AppConstants.INIT_APP_START:
-      showLoader();
-      AppStore.emitChange();
+      AppStore.showLoader();
       break;
 
     case AppConstants.INIT_APP_END:
-      hideLoader();
-      AppStore.emitChange();
+      AppStore.hideLoader();
       break;
 
     case AppConstants.TOGGLE_USER_MENU:
-      toggleUserMenu();
-      AppStore.emitChange();
+      AppStore.toggleUserMenu();
       break;
 
     default:
