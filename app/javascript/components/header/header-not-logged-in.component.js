@@ -1,4 +1,5 @@
 'use strict';
+/* @flow */
 
 import React, { Component } from 'react';
 
@@ -11,5 +12,14 @@ export let HeaderNotLoggenInComponent = (props) => {
     </p>
   );
 };
+
+
+//TODO: playtest it and remove
+function foo(x: string, y: number): number {
+  console.log('test 5', y);
+  return x.length * y;
+}
+foo('Hello', 2);
+
 
 HeaderNotLoggenInComponent.displayName = 'HeaderNotLoggenInComponent';

@@ -12,10 +12,7 @@ var VENDOR_LIBS = [
   'bluebird',
   'classnames',
   'lodash',
-  'history'//,
-  /*'leaflet',*/
-  /*'jquery',*/
-  /*'spin.js'*/
+  'history'
 ];
 
 module.exports = {
@@ -36,9 +33,9 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader?stage=1&optional=runtime']
+        loader: "babel-loader"
       },
       {
         test: /\.css$/,

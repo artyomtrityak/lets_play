@@ -35,7 +35,7 @@ export class AppContainer extends Component {
     UserStore.off(null, null, this); 
   }
 
-  handleChange = () => {
+  handleChange() {
     this.setState({
       app: AppStore.getState(),
       user: UserStore.getState()

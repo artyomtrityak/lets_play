@@ -21,7 +21,7 @@ export class AuthContainer extends Component {
     UserStore.off(null, null, this); 
   }
 
-  handleChange = () => {
+  handleChange() {
     this.setState(UserStore.getState());
   }
 
