@@ -9,6 +9,7 @@
 ##JavaScript
 - react
 - flux
+- flowtype
 - react-router
 - bluebird
 - classnames
@@ -19,4 +20,3 @@
 - Bootstrap
 - BEM
 - SCSS
-

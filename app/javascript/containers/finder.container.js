@@ -11,11 +11,13 @@ export class FinderContainer extends Component {
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div>
         <h1>Finder Page</h1>
         
-        {React.cloneElement(this.props.children, {...this.state})}
+        {React.cloneElement(this.props.children, this.state)}
 
       </div>
     );
