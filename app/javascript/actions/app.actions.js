@@ -12,13 +12,16 @@ export let toggleUserMenu = () => {
 
 
 export let showSignIn = () => {
-  console.log('signin');
+  AppDispatcher.dispatch({
+    actionType: AppConstants.OPEN_SIGN_IN
+  });
 };
 
 
 export let onCallForPlayers = () => {
   console.log('call for players');
 };
+
 
 export let onModalClose = () => {
   console.log('close modal');

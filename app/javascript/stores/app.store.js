@@ -8,33 +8,40 @@ import { AppDispatcher } from 'javascript/dispatchers/app.dispatcher';
 /**
 * Application state and state processers
 */
-let appState = {
-  isUserMenuOpen: false
+type AppStateType = {
+  isUserMenuOpen: boolean;
+  loading: boolean;
 };
 
-function showLoader () {
-  appState = Object.assign({}, {loading: true});
-}
+let appState = {
+  isUserMenuOpen: false,
+  loading: false
+};
 
-function hideLoader () {
-  appState = Object.assign({}, {loading: false});
-}
 
-let toggleUserMenu = () => {
-  appState = Object.assign({}, appState, {isUserMenuOpen: !appState.isUserMenuOpen});
+const showLoader = (state) : AppStateType => {
+  return Object.assign({}, state, {loading: true});
+};
+
+const hideLoader = (state) : AppStateType => {
+  return Object.assign({}, state, {loading: false});
+};
+
+const toggleUserMenu = (state) : AppStateType => {
+  return Object.assign({}, state, {isUserMenuOpen: !state.isUserMenuOpen});
 };
 
 
 /**
-* Application store
-* EXPORT: true
+* TODO: JSDOC
+* 
 */
-export let AppStore = Object.assign({}, EventEmitter.prototype, {
-  getState: function() {
+export const AppStore = Object.assign({}, EventEmitter.prototype, {
+  getState: function() : AppStateType {
     return appState;
   },
 
-  emitChange: function() {
+  emitChange: function() : void {
     this.emit('change');
   }
 });
@@ -43,26 +50,30 @@ export let AppStore = Object.assign({}, EventEmitter.prototype, {
 /**
 * Application events dispatchers
 */
-AppDispatcher.register( function (action) {
-  
+type DispatcherAppActionsType = {
+  actionType: string;
+};
+
+AppDispatcher.register((action : DispatcherAppActionsType) : void => {
+
   switch (action.actionType) {
-    
     case AppConstants.INIT_APP_START:
-      showLoader();
+      appState = showLoader(appState);
       AppStore.emitChange();
       break;
 
     case AppConstants.INIT_APP_END:
-      hideLoader();
+      appState = hideLoader(appState);
       AppStore.emitChange();
       break;
 
-    case AppConstants.TOGGLE_USER_MENU:
-      toggleUserMenu();
+    case AppConstants.OPEN_SIGN_IN:
+      appState = toggleUserMenu(appState);
       AppStore.emitChange();
       break;
 
     default:
       // no op
   }
+
 });

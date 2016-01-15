@@ -14,11 +14,11 @@ export class AuthContainer extends Component {
   }
 
   componentDidMount() {
-    UserStore.on('change', this.handleChange, this);
+    UserStore.on('change', this.handleChange.bind(this));
   }
 
   componentWillUnmount() {
-    UserStore.off(null, null, this); 
+    UserStore.off('change', this.handleChange); 
   }
 
   handleChange() {
