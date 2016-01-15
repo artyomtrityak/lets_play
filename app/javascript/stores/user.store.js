@@ -13,11 +13,10 @@ let userState = {
 
 
 /**
-* User store
-* EXPORT: true
+* TODO: JSDOC
 */
-export let UserStore = Object.assign({}, EventEmitter.prototype, {
-  getState: function() {
+export const UserStore = Object.assign({}, EventEmitter.prototype, {
+  getState: function () {
     return userState;
   },
 

@@ -26,13 +26,13 @@ export class AppContainer extends Component {
   }
 
   componentDidMount() {
-    AppStore.on('change', this.handleChange, this);
-    UserStore.on('change', this.handleChange, this);
+    AppStore.on('change', this.handleChange.bind(this));
+    UserStore.on('change', this.handleChange.bind(this));
   }
 
   componentWillUnmount() {
-    AppStore.off(null, null, this); 
-    UserStore.off(null, null, this); 
+    AppStore.off('change', this.handleChange);
+    UserStore.off('change', this.handleChange); 
   }
 
   handleChange() {
