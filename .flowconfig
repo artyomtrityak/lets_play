@@ -1,0 +1,12 @@
+[ignore]
+# Ignore all node_modules
+.*/node_modules/
+.*/node_modules/*
+
+[include]
+
+[libs]
+interfaces/
+
+[version]
+0.20.1

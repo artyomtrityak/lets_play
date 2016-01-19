@@ -1,4 +1,5 @@
 'use strict';
+/* @flow */
 
 import React, { Component } from 'react';
 import { Link } from 'react-router';
@@ -8,6 +9,7 @@ import imgUrl from 'assets/images/bgg.png';
 import * as AppActions from 'javascript/actions/app.actions';
 import { HeaderLoggenInComponent } from './header-logged-in.component';
 import { HeaderNotLoggenInComponent } from './header-not-logged-in.component';
+
 
 
 let onDisabledClick = (e) => {

@@ -1,3 +1,4 @@
+/* @flow */
 'use strict';
 
 import React, { Component } from 'react';
@@ -5,7 +6,7 @@ import cn from 'classnames';
 import imgUrl from 'assets/images/bgg.png';
 
 
-export let HeaderLoggenInComponent = (props) => {
+export let HeaderLoggenInComponent : Function = (props : any) : Object => {
   let dropdownCls = cn('dropdown', {open: props.isUserMenuOpen});
 
   return (
