@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "start": "webpack-dev-server --colors --progress",
-    "build": "webpack --progress --profile --colors -p",
+    "build": "webpack --progress --profile --colors -p"
   },
   "repository": {
     "type": "git",
